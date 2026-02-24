@@ -45,7 +45,7 @@ document.getElementById("volForm").onsubmit = async e => {
   const data = Object.fromEntries(new FormData(e.target));
   data.age = Number(data.age);
 
-  const res = await fetch("http://localhost:5000/api/auth/volunteer/signup", {
+  const res = await fetch("https://impact-link-backend.onrender.com/api/auth/volunteer/signup", {
     method: "POST",
     headers: {"Content-Type":"application/json"},
     body: JSON.stringify(data)

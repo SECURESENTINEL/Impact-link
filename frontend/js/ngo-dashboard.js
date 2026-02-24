@@ -20,17 +20,17 @@ function logout(){
 /* ================= DASHBOARD STATS ================= */
 
 async function loadStats(){
-  const activitiesRes = await fetch("http://localhost:5000/api/activities");
+  const activitiesRes = await fetch("https://impact-link-backend.onrender.com/api/activities");
   const activities = await activitiesRes.json();
 
   const myActivities = activities.filter(a => a.ngoId === ngoId);
 
-  const requestsRes = await fetch(`http://localhost:5000/api/activities/requests/${ngoId}`);
+  const requestsRes = await fetch(`https://impact-link-backend.onrender.com/api/activities/requests/${ngoId}`);
   const requests = await requestsRes.json();
 
   const pending = requests.filter(r => r.status === "pending");
 
-  const notifRes = await fetch(`http://localhost:5000/api/notifications/ngo/${ngoId}`);
+  const notifRes = await fetch(`https://impact-link-backend.onrender.com/api/notifications/ngo/${ngoId}`);
   const notifications = await notifRes.json();
 
   document.getElementById("totalActivities").innerText = myActivities.length;
@@ -46,7 +46,7 @@ document.getElementById("activityForm").onsubmit = async e => {
   const data = Object.fromEntries(new FormData(e.target));
   data.ngoId = ngoId;
 
-  await fetch("http://localhost:5000/api/activities/create", {
+  await fetch("https://impact-link-backend.onrender.com/api/activities/create", {
     method: "POST",
     headers: {"Content-Type":"application/json"},
     body: JSON.stringify(data)
@@ -59,7 +59,7 @@ document.getElementById("activityForm").onsubmit = async e => {
 /* ================= LOAD ACTIVITIES ================= */
 
 async function loadActivities(){
-  const res = await fetch("http://localhost:5000/api/activities");
+  const res = await fetch("https://impact-link-backend.onrender.com/api/activities");
   const activities = await res.json();
 
   const myActivities = activities.filter(a => a.ngoId === ngoId);
@@ -81,7 +81,7 @@ async function loadActivities(){
 /* ================= LOAD REQUESTS ================= */
 
 async function loadRequests(){
-  const res = await fetch(`http://localhost:5000/api/activities/requests/${ngoId}`);
+  const res = await fetch(`https://impact-link-backend.onrender.com/api/activities/requests/${ngoId}`);
   const requests = await res.json();
 
   const list = document.getElementById("requestList");
@@ -106,7 +106,7 @@ async function loadRequests(){
 /* ================= UPDATE REQUEST STATUS ================= */
 
 async function updateStatus(id,status){
-  await fetch(`http://localhost:5000/api/activities/update/${id}`,{
+  await fetch(`https://impact-link-backend.onrender.com/api/activities/update/${id}`,{
     method:"PUT",
     headers:{"Content-Type":"application/json"},
     body:JSON.stringify({status})
@@ -119,7 +119,7 @@ async function updateStatus(id,status){
 /* ================= LOAD NOTIFICATIONS ================= */
 
 async function loadNotifications(){
-  const res = await fetch(`http://localhost:5000/api/notifications/ngo/${ngoId}`);
+  const res = await fetch(`https://impact-link-backend.onrender.com/api/notifications/ngo/${ngoId}`);
   const notifications = await res.json();
 
   const list = document.getElementById("notificationList");

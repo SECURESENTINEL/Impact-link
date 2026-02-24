@@ -45,7 +45,7 @@ document.getElementById("ngoForm").onsubmit = async e => {
   e.preventDefault();
   const data = Object.fromEntries(new FormData(e.target));
 
-  const res = await fetch("http://localhost:5000/api/auth/ngo/signup", {
+  const res = await fetch("https://impact-link-backend.onrender.com/api/auth/ngo/signup", {
     method: "POST",
     headers: {"Content-Type":"application/json"},
     body: JSON.stringify(data)

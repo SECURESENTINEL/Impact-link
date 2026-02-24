@@ -20,10 +20,10 @@ function logout(){
 /* ================= DASHBOARD STATS ================= */
 async function loadStats(){
 
-  const reqRes = await fetch(`http://localhost:5000/api/activities/volunteer-requests/${volunteerId}`);
+  const reqRes = await fetch(`https://impact-link-backend.onrender.com/api/activities/volunteer-requests/${volunteerId}`);
   const requests = await reqRes.json();
 
-  const notifRes = await fetch(`http://localhost:5000/api/notifications/volunteer/${volunteerId}`);
+  const notifRes = await fetch(`https://impact-link-backend.onrender.com/api/notifications/volunteer/${volunteerId}`);
   const notifications = await notifRes.json();
 
   document.getElementById("totalRequests").innerText = requests.length;
@@ -35,10 +35,10 @@ async function loadStats(){
 /* ================= BROWSE ACTIVITIES ================= */
 async function loadActivities(){
 
-  const res = await fetch("http://localhost:5000/api/activities");
+  const res = await fetch("https://impact-link-backend.onrender.com/api/activities");
   const activities = await res.json();
 
-  const reqRes = await fetch(`http://localhost:5000/api/activities/volunteer-requests/${volunteerId}`);
+  const reqRes = await fetch(`https://impact-link-backend.onrender.com/api/activities/volunteer-requests/${volunteerId}`);
   const requests = await reqRes.json();
 
   const requestedIds = requests.map(r => r.activityId._id);
@@ -69,7 +69,7 @@ async function loadActivities(){
 /* ================= REQUEST JOIN ================= */
 async function requestJoin(activityId){
 
-  const res = await fetch("http://localhost:5000/api/activities/request",{
+  const res = await fetch("https://impact-link-backend.onrender.com/api/activities/request",{
     method:"POST",
     headers:{"Content-Type":"application/json"},
     body:JSON.stringify({
@@ -91,7 +91,7 @@ async function requestJoin(activityId){
 /* ================= MY REQUESTS ================= */
 async function loadRequests(){
 
-  const res = await fetch(`http://localhost:5000/api/activities/volunteer-requests/${volunteerId}`);
+  const res = await fetch(`https://impact-link-backend.onrender.com/api/activities/volunteer-requests/${volunteerId}`);
   const requests = await res.json();
 
   const list = document.getElementById("requestList");
@@ -110,7 +110,7 @@ async function loadRequests(){
 /* ================= ACCEPTED ================= */
 async function loadAccepted(){
 
-  const res = await fetch(`http://localhost:5000/api/activities/volunteer-requests/${volunteerId}`);
+  const res = await fetch(`https://impact-link-backend.onrender.com/api/activities/volunteer-requests/${volunteerId}`);
   const requests = await res.json();
 
   const accepted = requests.filter(r => r.status === "accepted");
@@ -132,7 +132,7 @@ async function loadAccepted(){
 /* ================= NOTIFICATIONS ================= */
 async function loadNotifications(){
 
-  const res = await fetch(`http://localhost:5000/api/notifications/volunteer/${volunteerId}`);
+  const res = await fetch(`https://impact-link-backend.onrender.com/api/notifications/volunteer/${volunteerId}`);
   const notifications = await res.json();
 
   const list = document.getElementById("notificationList");
