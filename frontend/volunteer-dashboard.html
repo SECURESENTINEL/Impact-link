@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Volunteer Dashboard | Impact Link</title>
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="volunteer-theme">
+
+
+<script>
+if(localStorage.getItem("role") !== "volunteer"){
+  window.location.href = "volunteer-login.html";
+}
+</script>
+
+<div class="dashboard">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="logo">
+      <img src="images/logo.png" class="logo-img">
+      <span>Impact Link</span>
+    </div>
+
+    <ul>
+      <li onclick="showSection('dashboard')"><i class="fa fa-chart-line"></i> Dashboard</li>
+      <li onclick="showSection('browse')"><i class="fa fa-search"></i> Browse Activities</li>
+      <li onclick="showSection('requests')"><i class="fa fa-clock"></i> My Requests</li>
+      <li onclick="showSection('accepted')"><i class="fa fa-check"></i> Accepted Activities</li>
+      <li onclick="showSection('notifications')"><i class="fa fa-bell"></i> Notifications</li>
+      <li onclick="logout()"><i class="fa fa-sign-out-alt"></i> Logout</li>
+    </ul>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <div class="topbar">
+      <h2 id="pageTitle">Volunteer Dashboard</h2>
+      <div class="profile">
+        <i class="fa fa-user-circle"></i>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <!-- DASHBOARD -->
+      <div id="dashboard" class="section">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <h3 id="totalRequests">0</h3>
+            <p>Total Requests</p>
+          </div>
+          <div class="stat-card">
+            <h3 id="acceptedCount">0</h3>
+            <p>Accepted</p>
+          </div>
+          <div class="stat-card">
+            <h3 id="notificationCount">0</h3>
+            <p>Notifications</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- BROWSE ACTIVITIES -->
+      <div id="browse" class="section" style="display:none">
+        <div id="activityList" class="card-grid"></div>
+      </div>
+
+      <!-- MY REQUESTS -->
+      <div id="requests" class="section" style="display:none">
+        <div id="requestList" class="card-grid"></div>
+      </div>
+
+      <!-- ACCEPTED -->
+      <div id="accepted" class="section" style="display:none">
+        <div id="acceptedList" class="card-grid"></div>
+      </div>
+
+      <!-- NOTIFICATIONS -->
+      <div id="notifications" class="section" style="display:none">
+        <div id="notificationList" class="card-grid"></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script src="js/volunteer-dashboard.js"></script>
+</body>
+</html>

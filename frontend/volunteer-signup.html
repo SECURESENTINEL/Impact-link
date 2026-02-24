@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Volunteer Signup</title>
+  <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+
+  <header id="main-header">
+    <nav id="navbar">
+
+        <!-- LOGO -->
+        <div class="logo">
+            <img src="images/logo.png" alt="NGO Logo">
+            <span>IMPACT LINK</span>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a class="active">Signup</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+
+    </nav>
+</header>
+
+<form class="auth-card" id="volForm">
+  <h2>Volunteer Signup</h2>
+  <input name="name" placeholder="Full Name" required>
+  <input type="number" name="age" placeholder="Age" required>
+  <input type="email" name="email" placeholder="Email" required>
+  <input name="username" placeholder="Username" required>
+  <input type="password" name="password" placeholder="Password" required>
+  <button>Register Volunteer</button>
+  <div class="link">
+    <a href="volunteer-login.html">Already registered? Login</a>
+  </div>
+</form>
+
+<script>
+document.getElementById("volForm").onsubmit = async e => {
+  e.preventDefault();
+  const data = Object.fromEntries(new FormData(e.target));
+  data.age = Number(data.age);
+
+  const res = await fetch("http://localhost:5000/api/auth/volunteer/signup", {
+    method: "POST",
+    headers: {"Content-Type":"application/json"},
+    body: JSON.stringify(data)
+  });
+
+  const result = await res.json();
+  alert(result.message || result.error);
+
+  if(res.ok) window.location.href = "volunteer-login.html";
+};
+</script>
+
+</body>
+</html>

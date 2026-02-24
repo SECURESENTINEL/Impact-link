@@ -1,0 +1,402 @@
+body{
+   background: #ffffff;
+    color:#243a49;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 18px;
+    line-height:1.5em;
+    margin:0;
+}
+
+.container{
+    width:80%;
+    margin:auto;
+    overflow: hidden;
+}
+
+
+#main-header{
+   background: #243a49;
+   padding: 0.5rem 0;
+   position: fixed;
+   width: 100%;
+   top: 0;
+   z-index: 1000;
+   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+}
+.logo {
+            display: flex;
+            align-items: center;
+            font-family: 'Patrick Hand', cursive;
+            font-weight: 900;
+            font-size: 1.8rem;
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+        }
+.logo img {
+    height: 45px;  /* controls logo height */
+    width: auto;
+    display: block;
+}
+.logo span {
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 1; /* VERY important */
+}
+
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            font-family: 'Patrick Hand', cursive;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .nav-links a:hover {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+.nav-links a.active {
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    padding: 6px 12px;
+    border-radius: 4px;
+}
+#navbar{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 8px 30px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#navbar ul{
+    padding: 0;
+    list-style: none;
+    gap: 25px;
+}
+
+#navbar li{
+    display: inline;
+}
+#navbar a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    padding-right: 15px;
+}
+
+#showcase{
+    background-image: url('../images/showcase.png');
+    background-position: center;
+    min-height:760px;
+    margin-bottom: 30px;
+    text-align: center;
+    background-repeat: no-repeat;
+}
+
+#showcase h1{
+    color:#333;
+    font-size: 35px;
+    line-height: 1.6em;
+    padding-top: 30px;
+}
+
+#main{
+    float:left;
+    width:70%;
+    color: #000000;
+    padding:0 30px;
+    font-family: 'Patrick Hand', cursive;
+    box-sizing: border-box;
+    margin-top: 80px;
+}
+
+#sidebar{
+    float:right;
+    width:30%;
+    background: #8c554b;
+    color: #000000;
+    padding:0 10px;
+    font-family: 'Patrick Hand', cursive;
+    box-sizing: border-box;
+}
+
+#main-footer{
+    background: #8c554b;
+    color: #fff;
+    text-align: center;
+    padding: 0.5rem 0;
+    margin-top: 40px;
+}
+
+@media(max-width:600px){
+    #main{
+        width:100%;
+        float:none;
+    }
+
+    #sidebar{
+        width: 100%;
+        float:none;
+    }
+}
+
+/* OUR WORK THEME SECTION */
+#work-theme {
+    padding: 80px 20px;
+    font-family: 'Patrick Hand', cursive;
+    background-color: transparent;
+    text-align: center;
+}
+
+#work-theme h2 {
+    margin-bottom: 50px;
+    font-size: 26px;
+    letter-spacing: 1px;
+    color: #243a49;
+}
+
+.work-theme-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.theme-card {
+    width: 300px;
+    padding: 35px 25px;
+    color: #000000;
+    animation: float 4s ease-in-out infinite;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.theme-card:nth-child(1) {
+    animation-delay: 0s;
+}
+.theme-card:nth-child(2) {
+    animation-delay: 1s;
+}
+.theme-card:nth-child(3) {
+    animation-delay: 2s;
+}
+
+.theme-card:hover {
+    transform: translateY(-15px) scale(1.03);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+}
+.theme-card h3 {
+    margin: 20px 0;
+    font-size: 18px;
+}
+
+.theme-card ul {
+    text-align: left;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.theme-card ul li {
+    margin-bottom: 8px;
+}
+
+/* Colors */
+.economic {
+    background-color: #eeeae5;
+}
+
+.environment {
+    background-color: #b6896a;
+}
+
+.social {
+    background-color: #8a7e75;
+}
+
+/* =====================================================
+   SIGNUP PAGES (NGO + VOLUNTEER) – MODERN UI
+   Safe to append at bottom
+===================================================== */
+
+/* Page background spacing fix */
+body {
+  background: #ffffff;
+  padding-top: 50px;
+}
+
+/* Signup page heading */
+h3 {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 1.9rem;
+  font-weight: 600;
+  color: #000000;
+  letter-spacing: 0.5px;
+}
+
+/* Signup form card */
+form {
+  background: #ffffff;
+  max-width: 430px;
+  margin: 35px auto 70px;
+  padding: 38px;
+  border-radius: 16px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+  animation: slideFade 0.7s ease;
+}
+
+/* Input fields */
+form input {
+  width: 100%;
+  padding: 14px 16px;
+  margin-bottom: 18px;
+  border: 1.6px solid #d6d6d6;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  background-color: #fafafa;
+}
+
+form input:focus {
+  outline: none;
+  border-color: #000000;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(67, 160, 71, 0.25);
+}
+
+/* Submit button */
+.submit-btn {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #43a047, #2e7d32);
+  color: #ffffff;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(46, 125, 50, 0.35);
+}
+/* ===============================
+   GO BACK BUTTON
+================================ */
+
+.back-container {
+  max-width: 430px;
+  margin: 10px auto 0;
+  text-align: left;
+}
+
+.back-btn {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #2e7d32;
+  background: #e8f5e9;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+  background: #c8e6c9;
+  transform: translateX(-3px);
+}
+
+/* ===============================
+   TOP SUCCESS / ERROR TOAST
+================================ */
+
+.toast {
+  position: fixed;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 320px;
+  padding: 14px 20px;
+  border-radius: 10px;
+  font-weight: 500;
+  text-align: center;
+  z-index: 3000;
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+.toast.show {
+  top: 20px;
+  opacity: 1;
+}
+
+.toast.success {
+  background: #2e7d32;
+  color: #fff;
+}
+
+.toast.error {
+  background: #c62828;
+  color: #fff;
+}
+
+/* Smooth appearance animation */
+@keyframes slideFade {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 500px) {
+  form {
+    margin: 25px 15px 60px;
+    padding: 28px;
+  }
+
+  h3 {
+    font-size: 1.6rem;
+  }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .work-theme-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-12px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}

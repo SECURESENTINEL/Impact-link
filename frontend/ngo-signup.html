@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>NGO Signup</title>
+  <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+
+  <header id="main-header">
+    <nav id="navbar">
+
+        <!-- LOGO -->
+        <div class="logo">
+            <img src="images/logo.png" alt="NGO Logo">
+            <span>IMPACT LINK</span>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a class="active">Signup</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+
+    </nav>
+</header>
+
+<form class="auth-card" id="ngoForm">
+  <h2>NGO Signup</h2>
+  <input name="ngoName" placeholder="NGO Name" required>
+  <input name="headName" placeholder="Head of NGO" required>
+  <input type="date" name="establishmentDate" required>
+  <input type="email" name="email" placeholder="Email" required>
+  <input name="username" placeholder="Username" required>
+  <input type="password" name="password" placeholder="Password" required>
+  <button>Register NGO</button>
+  <div class="link">
+    <a href="ngo-login.html">Already registered? Login</a>
+  </div>
+</form>
+
+<script>
+document.getElementById("ngoForm").onsubmit = async e => {
+  e.preventDefault();
+  const data = Object.fromEntries(new FormData(e.target));
+
+  const res = await fetch("http://localhost:5000/api/auth/ngo/signup", {
+    method: "POST",
+    headers: {"Content-Type":"application/json"},
+    body: JSON.stringify(data)
+  });
+
+  const result = await res.json();
+  alert(result.message || result.error);
+
+  if(res.ok) window.location.href = "ngo-login.html";
+};
+</script>
+
+</body>
+</html>

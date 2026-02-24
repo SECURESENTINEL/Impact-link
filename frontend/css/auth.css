@@ -1,0 +1,168 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(120deg, #0f766e, #16a34a);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  background-image: url('../images//bg.png'); /* change to your image path */
+  background-size: cover;       /* makes image cover full screen */
+  background-position: center;  /* centers image */
+  background-repeat: no-repeat; /* prevents repeating */
+  background-attachment: fixed; /* optional - gives slight parallax effect */
+  min-height: 100vh;
+}
+#main-header{
+   background: #243a49;
+   padding: 0.5rem 0;
+   position: fixed;
+   width: 100%;
+   top: 0;
+   z-index: 1000;
+   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+}
+.logo {
+            display: flex;
+            align-items: center;
+            font-family: 'Patrick Hand', cursive;
+            font-weight: 900;
+            font-size: 1.8rem;
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+        }
+.logo img {
+    height: 45px;  /* controls logo height */
+    width: auto;
+    display: block;
+}
+.logo span {
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 1; /* VERY important */
+}
+
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            font-family: 'Patrick Hand', cursive;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .nav-links a:hover {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+.nav-links a.active {
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    padding: 6px 12px;
+    border-radius: 4px;
+}
+#navbar{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 8px 30px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#navbar ul{
+    padding: 0;
+    list-style: none;
+    gap: 25px;
+}
+#navbar li{
+    display: inline;
+}
+#navbar a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    padding-right: 15px;
+}
+.auth-card {
+  background: white;
+  padding: 35px 40px;
+  width: 380px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  animation: fade 0.6s ease;
+}
+
+
+@keyframes fade {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.auth-card h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #0f766e;
+}
+
+.auth-card input {
+  width: 100%;
+  padding: 11px;
+  margin: 8px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.auth-card input:focus {
+  border-color: #16a34a;
+}
+
+.auth-card button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 12px;
+  border: none;
+  background: linear-gradient(120deg, #0f766e, #16a34a);
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.auth-card button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+.link {
+  text-align: center;
+  margin-top: 12px;
+}
+
+.link a {
+  color: #16a34a;
+  text-decoration: none;
+  font-weight: 600;
+}

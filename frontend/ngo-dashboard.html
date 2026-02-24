@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>NGO Dashboard | Impact Link</title>
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="ngo-theme">
+
+
+<script>
+if(localStorage.getItem("role") !== "ngo"){
+  window.location.href = "ngo-login.html";
+}
+</script>
+
+<div class="dashboard">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="logo">
+      <img src="images/logo.png" class="logo-img">
+      <span>Impact Link</span>
+    </div>
+
+
+
+    <ul>
+      <li onclick="showSection('dashboard')"><i class="fa fa-chart-line"></i> Dashboard</li>
+      <li onclick="showSection('create')"><i class="fa fa-plus"></i> Create Activity</li>
+      <li onclick="showSection('activities')"><i class="fa fa-list"></i> My Activities</li>
+      <li onclick="showSection('requests')"><i class="fa fa-users"></i> Volunteer Requests</li>
+      <li onclick="showSection('notifications')"><i class="fa fa-bell"></i> Notifications</li>
+      <li onclick="logout()"><i class="fa fa-sign-out-alt"></i> Logout</li>
+    </ul>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <!-- TOP BAR -->
+    <div class="topbar">
+      <h2 id="pageTitle">Dashboard</h2>
+      <div class="profile">
+        <i class="fa fa-user-circle"></i>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <!-- DASHBOARD -->
+      <div id="dashboard" class="section">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <h3 id="totalActivities">0</h3>
+            <p>Total Activities</p>
+          </div>
+          <div class="stat-card">
+            <h3 id="totalRequests">0</h3>
+            <p>Pending Requests</p>
+          </div>
+          <div class="stat-card">
+            <h3 id="totalNotifications">0</h3>
+            <p>Notifications</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CREATE -->
+      <div id="create" class="section" style="display:none">
+        <h3>Create Activity</h3>
+        <form id="activityForm" class="modern-form">
+          <input name="title" placeholder="Title" required>
+          <input name="category" placeholder="Category" required>
+          <input name="location" placeholder="Location" required>
+          <input type="date" name="date" required>
+          <input type="number" name="requiredVolunteers" placeholder="Required Volunteers" required>
+          <textarea name="description" placeholder="Description"></textarea>
+          <button>Create Activity</button>
+        </form>
+      </div>
+
+      <!-- ACTIVITIES -->
+      <div id="activities" class="section" style="display:none">
+        <div id="activityList" class="card-grid"></div>
+      </div>
+
+      <!-- REQUESTS -->
+      <div id="requests" class="section" style="display:none">
+        <div id="requestList" class="card-grid"></div>
+      </div>
+
+      <!-- NOTIFICATIONS -->
+      <div id="notifications" class="section" style="display:none">
+        <div id="notificationList" class="card-grid"></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script src="js/ngo-dashboard.js"></script>
+</body>
+</html>

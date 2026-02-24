@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Signup | Impact Link</title>
+  <link rel="stylesheet" href="css/auth.css">
+  
+  <style>
+    
+    .choice {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 14px;
+      text-align: center;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+    }
+  </style>
+</head>
+<body>
+<header id="main-header">
+    <nav id="navbar">
+
+        <!-- LOGO -->
+        <div class="logo">
+            <img src="images/logo.png" alt="NGO Logo">
+            <span>IMPACT LINK</span>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a class="active">Signup</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+
+    </nav>
+</header>
+    
+<div class="auth-card">
+  <h2>Join Impact Link</h2>
+  <div class="choice">
+    <div class="card" onclick="location.href='ngo-signup.html'">
+      <h3>NGO</h3>
+      <p>Register your NGO</p>
+    </div>
+    <div class="card" onclick="location.href='volunteer-signup.html'">
+      <h3>Volunteer</h3>
+      <p>Join as a volunteer</p>
+    </div>
+  </div>
+</div>
+<script>
+async function signupNGO() {
+  const res = await fetch("http://localhost:5000/api/auth/ngo/signup", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      ngoName: document.getElementById("ngoName").value,
+      headName: document.getElementById("headName").value,
+      establishmentDate: document.getElementById("establishmentDate").value,
+      email: document.getElementById("email").value,
+      username: document.getElementById("username").value,
+      password: document.getElementById("password").value
+    })
+  });
+
+  const data = await res.json();
+  alert(data.message || data.error);
+}
+</script>
+
+
+</body>
+</html>
