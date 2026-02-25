@@ -7,30 +7,28 @@ const Volunteer = require("../models/Volunteer");
 
 const router = express.Router();
 
-const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 587,
-  secure: false, // IMPORTANT: false for 587
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
-  },
-});
+const SibApiV3Sdk = require("sib-api-v3-sdk");
+
+const client = SibApiV3Sdk.ApiClient.instance;
+const apiKey = client.authentications["api-key"];
+apiKey.apiKey = process.env.BREVO_API_KEY;
+
+const emailApi = new SibApiV3Sdk.TransactionalEmailsApi();
 async function sendMail(to, subject, html) {
   try {
-    console.log("📧 Sending email to:", to);
-
-    const info = await transporter.sendMail({
-      from: `"Impact Link" <${process.env.EMAIL_USER}>`,
-      to,
-      subject,
-      html
+    await emailApi.sendTransacEmail({
+      sender: {
+        email: process.env.EMAIL_USER,
+        name: "Impact Link"
+      },
+      to: [{ email: to }],
+      subject: subject,
+      htmlContent: html
     });
 
-    console.log("✅ Email sent:", info.response);
-
+    console.log("✅ Email sent successfully");
   } catch (err) {
-    console.log("❌ Email error:", err);
+    console.log("❌ Email error:", err.message);
   }
 }
 
