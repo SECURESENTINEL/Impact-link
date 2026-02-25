@@ -18,12 +18,21 @@ const transporter = nodemailer.createTransport({
 });
 
 async function sendMail(to, subject, html) {
-  await transporter.sendMail({
-    from: `"Impact Link" <${process.env.EMAIL_USER}>`,
-    to,
-    subject,
-    html
-  });
+  try {
+    console.log("📧 Sending email to:", to);
+
+    const info = await transporter.sendMail({
+      from: `"Impact Link" <${process.env.EMAIL_USER}>`,
+      to,
+      subject,
+      html
+    });
+
+    console.log("✅ Email sent:", info.response);
+
+  } catch (err) {
+    console.log("❌ Email error:", err);
+  }
 }
 
 
