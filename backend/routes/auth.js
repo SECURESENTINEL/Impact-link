@@ -8,13 +8,14 @@ const Volunteer = require("../models/Volunteer");
 const router = express.Router();
 
 const transporter = nodemailer.createTransport({
-  service: "gmail",
+  host: "smtp.gmail.com",
+  port: 587,
+  secure: false, // IMPORTANT: false for 587
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS,
   },
 });
-
 async function sendMail(to, subject, html) {
   try {
     console.log("📧 Sending email to:", to);
